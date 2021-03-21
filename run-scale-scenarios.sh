@@ -21,7 +21,7 @@ fi
 
 scenarios_dir="${SCENARIOS_ROOT}/${RALLY_SCENARIOS}"
 
-if [[ ! -d $scenarios_dir ]] || [[ ! -f $scenarios_dir ]]
+if [[ ! -d $scenarios_dir ]] && [[ ! -f $scenarios_dir ]]
   then
   echo "No such file or directory $scenarios_dir"
   exit 1
@@ -32,7 +32,7 @@ fi
  
 # run scenarios
 err_flag=
-for scen in $(find $RALLY_SCENARIOS -type f)
+for scen in $(find $scenarios_dir -type f)
 do
   rally task start $scen --task-args-file ${SCENARIOS_ROOT}/$RALLY_TASK_ARGS || \
     err_flag=1

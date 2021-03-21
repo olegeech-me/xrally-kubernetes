@@ -5,3 +5,4 @@ COPY . /rally/xrally-kubernetes
 RUN pip3 install --upgrade /rally/xrally-kubernetes
 
 COPY run-scale-scenarios.sh /
+WORKDIR /home/rally
