@@ -38,6 +38,9 @@ do
     err_flag=1
 done
 
+# report results
+rally task report --deployment k8s --out /rally-reports/rally-$(date +%d%m%Y-%H%M%S).html
+
 if [[ -n $err_flag ]]
 then
   echo "Some of the scenarios failed"
